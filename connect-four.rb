@@ -11,16 +11,42 @@ class ConnectFour
       # puts "|" + row + "|"
       p ("|" + row.join(" ") + "|")
     end
-      p "-0 1 2 3 4 5 6 -"
+      p "-0 1 2 3 4 5 6-"
   end
 
 
-  def place(token, position)
+  # def place(token, position)
+  #   position = position.to_i
+
+  #   n = -1
+  #   while n > (@board.length * -1)
+
+  #     if @board[n][position] == " "
+  #       @board[n][position]= token
+  #     break
+  #     else
+  #       # n-=1
+  #       puts n
+  #       @board[n-1][position]=token
+  #     break
+  #     end
+  #     n-=1
+  #   end
+  # end
+
+
+  def place(token, position, n=-1)
     position = position.to_i
-    if @board[-1][position] == " "
-      @board[-1][position]= token
-    else
-      @board[-2][position]=token
+    if n > (@board.length * -1)
+
+      if @board[n][position] == " "
+        return @board[n][position]= token
+
+      else
+        n-=1
+        place(token, position, n)
+      end
+
     end
   end
 
@@ -42,8 +68,10 @@ def controller
 counter = 0
 game = ConnectFour.new
 puts "Welcome to connect Four"
-solved = false
-unless solved = true
+
+# solved = false
+# unless solved = true
+while counter<50
   if counter.even?
     p game.to_s
     puts "Enter your move player 1: "
