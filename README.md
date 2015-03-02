@@ -39,7 +39,34 @@ Example below:
 
 ```
 $ ruby connect_four.rb
+Welcome to Connect Four.
+|       |
+|       |
+|       |
+|       |
+|       |
+|       |
+-0123456-
+Enter your move player 1: 5
+|       |
+|       |
+|       |
+|       |
+|       |
+|     O |
+-0123456-
+Enter your move player 2: 4
+|       |
+|       |
+|       |
+|       |
+|       |
+|    XO |
+-0123456-
+Enter your move player 1:
 ```
+
+
 
 ## Optimize your learning 
 <!-- * this section is optional and may not be included in all challenges.
