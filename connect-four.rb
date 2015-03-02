@@ -76,6 +76,22 @@ class ConnectFour
                 (0..3).each { |x| store << @board2[x][x+3] }
                 (0..4).each {|x| store << @board2[x][x+2] }
                 (0..5).each {|x| store << @board2[x][x+1] }
+                if store.include?("XXXX") || store.include?("OOOO")
+                  return true
+                else
+                  @board3 = @board.transpose.reverse
+                  store = ""
+                (0..3).each { |x| store << @board3[x][x+3] }
+                (0..4).each {|x| store << @board3[x][x+2] }
+                (0..5).each {|x| store << @board3[x][x+1] }
+                (0..6).each {|x| store << @board3[x][x] }
+                @board4 = @board3.transpose
+                (0..3).each { |x| store << @board4[x][x+3] }
+                (0..4).each {|x| store << @board4[x][x+2] }
+                (0..5).each {|x| store << @board4[x][x+1] }
+                end
+
+
               end
             end
           end
