@@ -66,13 +66,14 @@ Enter your move player 2: 4
 Enter your move player 1:
 ```
 
+### Release 2: Add win conditions, error handling, and boundary conditions
 
+Now make sure that you can end a game by winning or by a draw. Make sure the program handles errors properly. What happens if a user inputs a bad column, or tries to play in a full column? 
 
-## Optimize your learning 
-<!-- * this section is optional and may not be included in all challenges.
-* Use this to drive reflection, code refactoring, code review, group discussion. 
-* Include directives to revisit Learning Outcomes and validate learning.
- -->
-## Resources
-<!-- * Links to all resources needed for this challenge
- -->
+### Release 3 (Stretch): Add alternate modes
+
+Make it so that your program starts by asking the user for a mode. Modes include: player vs player, player vs computer, computer vs computer. Create a computer player to play against.
+
+### Release 4 (Stretch): Add saving and loading of games
+
+Now that we have a difficult computer to play against, maybe we can't finish our game in one sitting. Add the ability to save a game and resume it later.
