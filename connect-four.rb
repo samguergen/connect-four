@@ -1,17 +1,17 @@
 class ConnectFour
   attr_reader :place, :to_s, :player1, :player2
   def initialize
-    @player1 = "X"
-    @player2 = "O"
+    # @player1 = "X"
+    # @player2 = "O"
     @board = Array.new(7) { Array.new(7) {" "} }
   end
 
   def to_s
-      @board.each do |row|
+    @board.each do |row|
       # puts "|" + row + "|"
       p ("|" + row.join(" ") + "|")
     end
-      p "-0 1 2 3 4 5 6-"
+    p "-0 1 2 3 4 5 6-"
   end
 
 
@@ -51,8 +51,39 @@ class ConnectFour
     end
   end
 
+  def solved?
+    #horizontal win?
+    @board.each do |row|
+      store = ""
+      row.each do |token|
+        store << token
+        if store.include?("XXXX") || store.include?("OOOO")
+          return true
+        else
+          @board.transpose.each do |row|
+            store = ""
+            row.each do |token|
+              store << token
+              if store.include?("XXXX") || store.include?("OOOO")
+              return true
+              else
+                store = ""
+                (0..3).each { |x| store << @board[x][x+3] }
+                (0..4).each {|x| store << @board[x][x+2] }
+                (0..5).each {|x| store << @board[x][x+1] }
+                (0..6).each {|x| store << @board[x][x] }
+                @board2 = @board.transpose
+                (0..3).each { |x| store << @board2[x][x+3] }
+                (0..4).each {|x| store << @board2[x][x+2] }
+                (0..5).each {|x| store << @board2[x][x+1] }
+              end
+            end
+          end
+        end
+      end
+    end
+  end
 end
-
 
 
 # p game.to_s
@@ -65,32 +96,34 @@ end
 
 def controller
 
-counter = 0
-game = ConnectFour.new
-puts "Welcome to connect Four"
+  counter = 0
+  game = ConnectFour.new
+  puts "Welcome to connect Four"
+# game.solved? = false
 
-# solved = false
-# unless solved = true
-while counter<50
-  if counter.even?
-    p game.to_s
-    puts "Enter your move player 1: "
-    token = gets.chomp
-    position = gets.chomp
-    game.place(token, position)
-    p game.to_s
-  else
-    p game.to_s
-    puts "Enter your move player 2: "
-    token = gets.chomp
-    position = gets.chomp
-    game.place(token, position)
-    p game.to_s
+  while counter<50
+    if counter.even? && game.solved? != true
+      p game.to_s
+      puts "Enter your move player 1: "
+      token = gets.chomp
+      position = gets.chomp
+      game.place(token, position)
+      p game.to_s
+      p game.solved?
+    elsif counter.odd? && game.solved? != true
+      p game.to_s
+      puts "Enter your move player 2: "
+      token = gets.chomp
+      position = gets.chomp
+      game.place(token, position)
+      p game.to_s
+      p game.solved?
+    end
+    counter +=1
   end
+puts "You finished the game!"
+end
 
-  counter +=1
-end
-end
 
 p controller
 
