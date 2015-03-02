@@ -37,7 +37,7 @@ class ConnectFour
 
   def place(token, position, n=-1)
     position = position.to_i
-    if n > (@board.length * -1)
+    if n >= (@board.length * -1)
 
       if @board[n][position] == " "
         return @board[n][position]= token
@@ -46,10 +46,10 @@ class ConnectFour
         n-=1
         place(token, position, n)
       end
-
+    else
+      puts "Not a valid move. Please pick another column."
     end
   end
-
 
 end
 
