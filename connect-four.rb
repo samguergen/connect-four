@@ -15,12 +15,36 @@ class ConnectFour
   end
 
 
+<<<<<<< HEAD
   def place(token, position, n=-1)
     unless ("0".."6").include?(position)
       puts "Not a row. Pick number between 0 and 6"
       controller
     end
 
+=======
+  # def place(token, position)
+  #   position = position.to_i
+
+  #   n = -1
+  #   while n > (@board.length * -1)
+
+  #     if @board[n][position] == " "
+  #       @board[n][position]= token
+  #     break
+  #     else
+  #       # n-=1
+  #       puts n
+  #       @board[n-1][position]=token
+  #     break
+  #     end
+  #     n-=1
+  #   end
+  # end
+
+
+  def place(token, position, n=-1)
+>>>>>>> sam_kurt
     position = position.to_i
     if n >= (@board.length * -1)
 
@@ -37,7 +61,11 @@ class ConnectFour
   end
 
   def solved?
+<<<<<<< HEAD
     #horizontal check
+=======
+    #horizontal win?
+>>>>>>> sam_kurt
     @board.each do |row|
       store = ""
       row.each do |token|
@@ -45,7 +73,10 @@ class ConnectFour
         if store.include?("XXXX") || store.include?("OOOO")
           return true
         else
+<<<<<<< HEAD
           #vertical check
+=======
+>>>>>>> sam_kurt
           @board.transpose.each do |row|
             store = ""
             row.each do |token|
@@ -53,7 +84,10 @@ class ConnectFour
               if store.include?("XXXX") || store.include?("OOOO")
               return true
               else
+<<<<<<< HEAD
                 #diagonal check
+=======
+>>>>>>> sam_kurt
                 store = ""
                 (0..3).each { |x| store << @board[x][x+3] }
                 (0..4).each {|x| store << @board[x][x+2] }
@@ -68,6 +102,7 @@ class ConnectFour
                 else
                   @board3 = @board.transpose.reverse
                   store = ""
+<<<<<<< HEAD
                   (0..3).each { |x| store << @board3[x][x+3] }
                   (0..4).each {|x| store << @board3[x][x+2] }
                   (0..5).each {|x| store << @board3[x][x+1] }
@@ -77,6 +112,19 @@ class ConnectFour
                   (0..4).each {|x| store << @board4[x][x+2] }
                   (0..5).each {|x| store << @board4[x][x+1] }
                 end
+=======
+                (0..3).each { |x| store << @board3[x][x+3] }
+                (0..4).each {|x| store << @board3[x][x+2] }
+                (0..5).each {|x| store << @board3[x][x+1] }
+                (0..6).each {|x| store << @board3[x][x] }
+                @board4 = @board3.transpose
+                (0..3).each { |x| store << @board4[x][x+3] }
+                (0..4).each {|x| store << @board4[x][x+2] }
+                (0..5).each {|x| store << @board4[x][x+1] }
+                end
+
+
+>>>>>>> sam_kurt
               end
             end
           end
@@ -126,4 +174,13 @@ puts "You finished the game!"
 end
 
 
+<<<<<<< HEAD
 p controller
+=======
+p controller
+
+
+
+
+
+>>>>>>> sam_kurt
